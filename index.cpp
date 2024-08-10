@@ -22,6 +22,8 @@ int main()
     {
         se.insert(a[i]);
     }
-    cout << se.size() << endl;
+    for(int x : se){
+        cout << x << " ";
+    }
     return 0;
 }
