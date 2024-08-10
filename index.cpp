@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include<vector>
 using namespace std;
 
 int main()
@@ -8,33 +9,33 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
-    int n;
-    cin >> n;
-    int a[n];
-    // Nhập mảng
-    set<int> se;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> a[i];
-        se.insert(a[i]);
-    }
-    int b;
-    cin >> b;
-    string kq[b]; 
-    for(int i = 0; i < b; i++){
-        int c; 
-        cin >> c; 
-        auto it = se.find(c);
-        if(it == se.end()){
-            kq[i] = "NO\n";
+    int n; 
+    cin >> n; 
+    vector<int>v; 
+    for(int i = 0; i < n; i++){
+        int select; 
+        cin >> select; 
+        if(select == 1){
+            int valum ;
+            cin >> valum; 
+            v.push_back(valum);  
+        }
+        else if(select == 2){
+            if(v.empty()){
+                continue; 
+            }
+            v.pop_back();
         }
         else{
-            kq[i] = "YES\n";
+            cout << "Xin vui long nhap lai\n";
         }
     }
-    // Đẩy mảng vào set
-    for(int i = 0; i < b; i++){
-        cout << kq[i] ; 
+    if(v.empty()){
+        cout << "EMPTY\n";
     }
+    for(int i = 0; i < v.size(); i++){
+        cout << v[i] << " ";
+    }
+    
     return 0;
 }
